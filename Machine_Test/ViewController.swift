@@ -23,7 +23,7 @@ class ViewController: UIViewController {
     var jsonDecoder : JSONDecoder?
     
     var users = [Users]()
-    var populations = [Population]()
+    var populations = [PopulationData]()
 
     override func viewDidLoad() {
         
@@ -42,7 +42,8 @@ class ViewController: UIViewController {
         
         
         getUsers()
-        jsonPassingDecoder()
+        fetchPopulationData()
+        
         // Do any additional setup after loading the view.
     }
     
@@ -77,28 +78,29 @@ class ViewController: UIViewController {
         
         
     }
-    func jsonPassingDecoder(){
-        urlString =  "https://datausa.io/api/data?drilldowns=Nation&measures=Population"
- 
-     url = URL(string: urlString!)
-        urlRequest = URLRequest(url: url!)
-        URLSession.shared.dataTask(with: urlRequest!){
-            data,response,error in
-            if (error == nil ){
-                do{
-                    self.jsonDecoder = JSONDecoder()
-                    let populationResponse = try self.jsonDecoder?.decode([Population].self, from: data!)
-                    self.populations = populationResponse!
-                }catch{
-                    print(error)
+    private func fetchPopulationData(){
+            let url = URL(string: "https://datausa.io/api/data?drilldowns=Nation&measures=Population")
+            let request = URLRequest(url: url!)
+            let dataTask = URLSession.shared.dataTask(with: request){
+                data,response,error in
+                if(error == nil){
+                    do{
+                        let jsonData = try JSONDecoder().decode(DataModelPopulation.self, from: data!)
+                        self.populations = jsonData.data
+                        print("Population Data:-",self.populations.count)
+                        DispatchQueue.main.async {
+                            self.PopulationTabelView.reloadData()
+                        }
+                    }
+                    catch{
+                        
+                    }
                 }
             }
-            DispatchQueue.main.async {
-                self.PopulationTabelView.reloadData()
-            }
-        }.resume()
+            dataTask.resume()
+        }
     }
-}
+
 extension  ViewController : UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return populations.count
@@ -108,7 +110,7 @@ extension  ViewController : UITableViewDelegate,UITableViewDataSource{
         let data = populations[indexPath.row]
         let cell = PopulationTabelView.dequeueReusableCell(withIdentifier: "PopulationTableViewCell",for:indexPath)as! PopulationTableViewCell
         cell.YearLabel.text = String(data.year)
-        cell.PopulationLabel.text = String(data.Population)
+        cell.PopulationLabel.text = String(data.population)
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

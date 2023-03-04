@@ -1,26 +1,30 @@
-//
-//  Population.swift
-//  Machine_Test
-//
-//  Created by Mac on 04/03/23.
-//
 
 import Foundation
 
-
-
-
-struct Population : Decodable{
-    var Population : Int
-    var year : Int
-    enum mainContainerKey : CodingKey{
-        case Population,year
+struct DataModelPopulation:Decodable{
+    let data:[PopulationData]
+    
+    enum CodingKeys: CodingKey {
+        case data
     }
-    init(from decoder : Decoder)throws{
-        let mainContainer = try decoder.container(keyedBy: mainContainerKey.self)
-        Population = try! mainContainer.decode(Int.self, forKey: .Population)
-        year = try! mainContainer.decode(Int.self, forKey: .year)
-        
-        
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.data = try container.decode([PopulationData].self, forKey: .data)
+    }
+}
+struct PopulationData:Decodable{
+    let population:Int
+    let year:String
+    
+    enum PopulationKeys:String, CodingKey {
+      case population = "Population"
+      case year = "Year"
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: PopulationKeys.self)
+        population = try container.decode(Int.self, forKey: .population)
+        year = try container.decode(String.self, forKey: .year)
     }
 }

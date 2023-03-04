@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KlO-OX-cJH">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KlO-OX-cJH">
                                 <rect key="frame" x="0.0" y="275" width="414" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Terms &amp; Condition button "/>
@@ -27,7 +27,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Service Button"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EIi-wo-R11">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EIi-wo-R11">
                                 <rect key="frame" x="0.0" y="144" width="414" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Logout Button"/>
@@ -37,9 +37,13 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Kra-y1-rzQ" firstAttribute="trailing" secondItem="X1Y-1B-6uE" secondAttribute="trailing" constant="20" id="12L-qC-HI0"/>
+                            <constraint firstItem="KlO-OX-cJH" firstAttribute="centerX" secondItem="X1Y-1B-6uE" secondAttribute="centerX" id="3dG-Jq-jgC"/>
                             <constraint firstItem="Kra-y1-rzQ" firstAttribute="bottom" secondItem="X1Y-1B-6uE" secondAttribute="bottom" constant="376" id="6gp-dH-rrB"/>
                             <constraint firstItem="X1Y-1B-6uE" firstAttribute="top" secondItem="KlO-OX-cJH" secondAttribute="bottom" constant="100" id="CcP-2Z-dJP"/>
+                            <constraint firstItem="KlO-OX-cJH" firstAttribute="leading" secondItem="EIi-wo-R11" secondAttribute="leading" id="E6h-DC-Wkz"/>
                             <constraint firstItem="KlO-OX-cJH" firstAttribute="top" secondItem="EIi-wo-R11" secondAttribute="bottom" constant="100" id="J9C-Gc-aua"/>
+                            <constraint firstItem="KlO-OX-cJH" firstAttribute="leading" secondItem="Kra-y1-rzQ" secondAttribute="leading" id="aKI-vk-Vto"/>
+                            <constraint firstItem="KlO-OX-cJH" firstAttribute="trailing" secondItem="EIi-wo-R11" secondAttribute="trailing" id="b5d-74-Att"/>
                             <constraint firstItem="X1Y-1B-6uE" firstAttribute="leading" secondItem="Kra-y1-rzQ" secondAttribute="leading" constant="20" id="oBn-2C-tx4"/>
                             <constraint firstItem="EIi-wo-R11" firstAttribute="top" secondItem="Kra-y1-rzQ" secondAttribute="top" constant="100" id="pGJ-qw-HeG"/>
                         </constraints>
@@ -153,10 +157,13 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="mUL-Ho-9c3">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="mUL-Ho-9c3">
                                 <rect key="frame" x="20" y="581" width="374" height="232"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="374" id="YIT-Xy-SsZ"/>
+                                    <constraint firstAttribute="height" constant="232" id="caw-W7-Kqu"/>
+                                </constraints>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="lE5-cl-TpD"/>
@@ -165,11 +172,15 @@
                             <constraint firstItem="XyF-lI-lzx" firstAttribute="top" secondItem="B4k-2v-5Go" secondAttribute="bottom" constant="53" id="17a-v0-2ET"/>
                             <constraint firstItem="XyF-lI-lzx" firstAttribute="leading" secondItem="lE5-cl-TpD" secondAttribute="leading" constant="20" id="7vw-fa-SlK"/>
                             <constraint firstItem="XyF-lI-lzx" firstAttribute="top" secondItem="B4k-2v-5Go" secondAttribute="bottom" constant="53" id="Dbk-l8-3hL"/>
+                            <constraint firstItem="lE5-cl-TpD" firstAttribute="trailing" secondItem="mUL-Ho-9c3" secondAttribute="trailing" constant="20" id="Fts-5N-c6j"/>
                             <constraint firstItem="B4k-2v-5Go" firstAttribute="trailing" secondItem="lE5-cl-TpD" secondAttribute="trailing" id="HKk-45-ilH"/>
                             <constraint firstItem="B4k-2v-5Go" firstAttribute="top" secondItem="lE5-cl-TpD" secondAttribute="top" id="JDQ-Hp-5PK"/>
                             <constraint firstItem="XyF-lI-lzx" firstAttribute="leading" secondItem="lE5-cl-TpD" secondAttribute="leading" constant="20" id="PwF-zr-vCF"/>
                             <constraint firstItem="lE5-cl-TpD" firstAttribute="trailing" secondItem="XyF-lI-lzx" secondAttribute="trailing" constant="20" id="Wds-cT-sBX"/>
+                            <constraint firstItem="mUL-Ho-9c3" firstAttribute="bottom" secondItem="lE5-cl-TpD" secondAttribute="bottom" id="cTn-eU-VYW"/>
                             <constraint firstItem="B4k-2v-5Go" firstAttribute="leading" secondItem="lE5-cl-TpD" secondAttribute="leading" id="eRK-BA-sYU"/>
+                            <constraint firstItem="mUL-Ho-9c3" firstAttribute="top" secondItem="XyF-lI-lzx" secondAttribute="bottom" constant="28" id="ohw-IE-74M"/>
+                            <constraint firstItem="mUL-Ho-9c3" firstAttribute="leading" secondItem="lE5-cl-TpD" secondAttribute="leading" constant="20" id="qZs-zs-ZUY"/>
                             <constraint firstItem="lE5-cl-TpD" firstAttribute="trailing" secondItem="XyF-lI-lzx" secondAttribute="trailing" constant="20" id="tfU-k7-N3X"/>
                         </constraints>
                     </view>
