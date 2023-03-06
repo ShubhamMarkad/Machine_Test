@@ -7,14 +7,16 @@
 
 import UIKit
 import GoogleMaps
+import MapKit
 
 class ViewController: UIViewController {
     
     @IBOutlet weak var PopulationTabelView: UITableView!
     @IBOutlet weak var UsersCollectionView: UICollectionView!
    
-    @IBOutlet weak var mapView: GMSMapView!
-    
+    @IBOutlet weak var mapView: MKMapView!
+   // @IBOutlet weak var mapView: GMSMapView!
+     
     
     var url : URL?
     var urlString : String?
@@ -24,6 +26,7 @@ class ViewController: UIViewController {
     
     var users = [Users]()
     var populations = [PopulationData]()
+    var loctionManager : CLLocationManager!
 
     override func viewDidLoad() {
         
@@ -43,9 +46,24 @@ class ViewController: UIViewController {
         
         getUsers()
         fetchPopulationData()
-        
+        setMapView()
         // Do any additional setup after loading the view.
     }
+    private func setMapView(){
+            let latitude:CLLocationDegrees = 18.5091
+            let longitude:CLLocationDegrees = 73.8326
+        let letDelta:CLLocationDegrees = 45.0
+        let lonDelta:CLLocationDegrees = 0.04
+            let location:CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude, longitude)
+            let span:MKCoordinateSpan = .init(latitudeDelta: letDelta, longitudeDelta: lonDelta)
+            let region:MKCoordinateRegion = .init(center: location, span: span)
+            self.mapView.setRegion(region, animated: true)
+
+            let annotation:MKPointAnnotation = MKPointAnnotation()
+            annotation.coordinate = location
+            annotation.title = "Bitcode Technology"
+            self.mapView.addAnnotation(annotation)
+        }
     
     func getUsers(){
         var urlString = "https://gorest.co.in/public/v2/users"
@@ -146,5 +164,47 @@ extension ViewController : UICollectionViewDataSource{
     }
    
     
-
+/*
  
+func showMarker(position : CLLocationCoordinate2D){
+    marker.position = position
+    marker.title = "LiveLoction"
+    marker.snippet = "LiveLoction"
+    marker.rotation = 45.0
+    marker.isDraggable = true
+    marker.zIndex = 30
+    marker.opacity = 0.4
+    marker.map = mapView
+}
+func inializaMapSetting(){
+    mapView.mapType = .normal
+    mapView.settings.indoorPicker = true
+    mapView.settings.myLocationButton = true
+    mapView.settings.rotateGestures = true
+    mapView.settings.scrollGestures = true
+    mapView.settings.zoomGestures = true
+    mapView.settings.tiltGestures = true
+    
+}
+}
+extension ViewController : GMSMapViewDelegate{
+func mapView(_ mapView: GMSMapView, didBeginDragging marker: GMSMarker) {
+    print("\(marker.position.latitude) --- \(marker.position.longitude)")
+}
+func mapView(_ mapView: GMSMapView, didDrag marker: GMSMarker) {
+    print("\(marker.position.latitude)--\(marker.position.longitude)")
+}
+func mapView(_ mapView: GMSMapView, markerInfoWindow marker: GMSMarker) -> UIView? {
+    let infoWindowView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: 10))
+    infoWindowView.backgroundColor = UIColor.blue
+    infoWindowView.alpha = 0.0
+    
+    let label1 = UILabel(frame: CGRect(x: 10, y: 10, width: Int(infoWindowView.frame.width)-20, height: 30))
+    label1.backgroundColor = UIColor(red: 0.25, green: 0.0, blue: 0.0, alpha: 0.6)
+    label1.text = "This is live loction"
+    label1.textColor = .white
+    infoWindowView.addSubview(label1)
+    return infoWindowView
+}
+}
+*/

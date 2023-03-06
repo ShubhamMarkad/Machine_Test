@@ -9,35 +9,51 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="85" id="KGk-i7-Jjw" customClass="PopulationTableViewCell" customModule="Machine_Test" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="85"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="277" id="KGk-i7-Jjw" customClass="PopulationTableViewCell" customModule="Machine_Test" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="507" height="277"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="85"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="507" height="277"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Population" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pbn-ES-6m8">
-                        <rect key="frame" x="16" y="13" width="288" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jJp-T4-v7P">
+                        <rect key="frame" x="20" y="0.0" width="467" height="71"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="467" id="3Wl-AQ-dVQ"/>
+                            <constraint firstAttribute="height" constant="71" id="n3s-Wr-HJI"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Year" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="knV-2x-Xbn">
-                        <rect key="frame" x="16" y="53" width="288" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wyN-Vc-16T">
+                        <rect key="frame" x="0.0" y="171" width="467" height="51"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="467" id="ltj-ui-rGZ"/>
+                            <constraint firstAttribute="height" constant="51" id="nOZ-cc-2dW"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstItem="wyN-Vc-16T" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="6NR-Xg-Nlj"/>
+                    <constraint firstItem="wyN-Vc-16T" firstAttribute="top" secondItem="jJp-T4-v7P" secondAttribute="bottom" constant="100" id="FYG-vx-0zj"/>
+                    <constraint firstItem="jJp-T4-v7P" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" symbolic="YES" id="H7E-Rk-FA4"/>
+                    <constraint firstAttribute="trailing" secondItem="jJp-T4-v7P" secondAttribute="trailing" constant="20" symbolic="YES" id="Y8H-9q-Hrk"/>
+                    <constraint firstAttribute="bottom" secondItem="wyN-Vc-16T" secondAttribute="bottom" constant="10" id="ZCt-de-bM1"/>
+                    <constraint firstItem="jJp-T4-v7P" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="bbf-ec-Ltt"/>
+                    <constraint firstAttribute="trailing" secondItem="wyN-Vc-16T" secondAttribute="trailing" id="vM8-Eq-lIK"/>
+                </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="PopulationLabel" destination="Pbn-ES-6m8" id="Vgw-oi-IB3"/>
-                <outlet property="YearLabel" destination="knV-2x-Xbn" id="Oh3-2E-0Zd"/>
+                <outlet property="PopulationLabel" destination="jJp-T4-v7P" id="z0X-ol-8DR"/>
+                <outlet property="YearLabel" destination="wyN-Vc-16T" id="9f1-lV-LK9"/>
             </connections>
-            <point key="canvasLocation" x="131.8840579710145" y="91.40625"/>
+            <point key="canvasLocation" x="265.94202898550725" y="162.38839285714286"/>
         </tableViewCell>
     </objects>
 </document>
